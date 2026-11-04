@@ -1,4 +1,4 @@
-resource "azurerm_storage_account" "github-test" {
+resource "azurerm_storage_account" "sg" {
   name                     = var.storage_account_name
   resource_group_name      = var.resource_group_name
   location                 = var.location
