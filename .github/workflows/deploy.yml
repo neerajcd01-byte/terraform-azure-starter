@@ -42,7 +42,21 @@ jobs:
         -var-file=environments/dev/terraform.tfvars
 
     - name: Terraform Apply
+      id: apply
       run: |
         terraform apply \
         -auto-approve \
         -var-file=environments/dev/terraform.tfvars
+
+    - name: Cleanup Failed Deployment
+      if: steps.apply.outcome == 'failure'
+      run: |
+        terraform destroy \
+          -auto-approve \
+          -var-file=environments/dev/terraform.tfvars
+
+    - name: Fail Workflow
+      if: steps.apply.outcome == 'failure'
+      run: |
+        echo "Terraform deployment failed"
+        exit 1
