@@ -26,3 +26,20 @@ module "virtual_machines" {
     module.storage
   ]
 }
+
+module "application_gateway" {
+
+  source = "./modules/application-gateway"
+
+  resource_group_name = var.resource_group_name
+
+  location = module.virtual_machines.location
+
+  subnet_id = module.virtual_machines.appgw_subnet_id
+
+  backend_ip_address = module.virtual_machines.linux_private_ip
+
+  depends_on = [
+    module.virtual_machines
+  ]
+}
