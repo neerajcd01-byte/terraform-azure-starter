@@ -1,3 +1,3 @@
 output "rg_name" {
-  value = azurerm_resource_group.github-test.name
+  value = azurerm_resource_group.rg.name
 }
