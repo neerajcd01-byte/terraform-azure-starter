@@ -14,7 +14,7 @@ module "storage" {
 }
 
 module "virtual_machines" {
-  source = "./modules/virtual-machines"
+  source = "./modules/Virtual-machines"
 
   resource_group_name = var.resource_group_name
   storage_account_name = var.storage_account_name
