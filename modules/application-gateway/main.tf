@@ -14,8 +14,8 @@ resource "azurerm_application_gateway" "appgw" {
   location            = var.location
 
   sku {
-    name     = "Standard_v"
-    tier     = "Standard_v"
+    name     = "Standard_v2"
+    tier     = "Standard_v2"
     capacity = 2
   }
 
