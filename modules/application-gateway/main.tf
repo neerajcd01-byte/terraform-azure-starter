@@ -14,17 +14,10 @@ resource "azurerm_application_gateway" "appgw" {
   location            = var.location
 
   sku {
-    name     = "WAF_v2"
-    tier     = "WAF_v2"
+    name     = "Standard_v"
+    tier     = "Standard_v"
     capacity = 2
   }
-
-  waf_configuration {
-  enabled          = true
-  firewall_mode    = "Prevention"
-  rule_set_type    = "OWASP"
-  rule_set_version = "3.2"
-}
 
   gateway_ip_configuration {
     name      = "gateway-ip-config"
